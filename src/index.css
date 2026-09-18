@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+
+  /* Dark theme (default) */
+  --color-ink-950: 8 11 18;
+  --color-ink-900: 11 15 25;
+  --color-ink-800: 17 23 38;
+  --color-ink-700: 20 26 42;
+  --color-ink-600: 28 36 56;
+  --color-ink-500: 37 48 72;
+  --color-ink-400: 58 71 102;
+  --color-paper-50: 247 248 251;
+  --color-paper-100: 238 241 247;
+
+  --color-signal: 245 166 35;
+  --color-signal-light: 255 201 102;
+  --color-signal-dark: 198 127 15;
+  --color-ion: 76 154 255;
+  --color-ion-light: 138 192 255;
+  --color-mint: 52 211 153;
+  --color-mint-dark: 26 158 110;
+  --color-coral: 248 113 113;
+  --color-coral-dark: 220 76 76;
+}
+
+body.theme-light {
+  color-scheme: light;
+
+  /* Light theme overrides: ink-* becomes light surfaces, paper-* becomes dark text */
+  --color-ink-950: 255 255 255;
+  --color-ink-900: 246 247 250;
+  --color-ink-800: 255 255 255;
+  --color-ink-700: 255 255 255;
+  --color-ink-600: 237 240 246;
+  --color-ink-500: 219 224 234;
+  --color-ink-400: 148 158 179;
+  --color-paper-50: 11 15 25;
+  --color-paper-100: 15 20 31;
+
+  --color-signal: 197 122 9;
+  --color-signal-light: 224 150 32;
+  --color-signal-dark: 148 92 7;
+  --color-ion: 37 99 235;
+  --color-ion-light: 59 130 246;
+  --color-mint: 5 150 105;
+  --color-mint-dark: 4 120 84;
+  --color-coral: 220 38 38;
+  --color-coral-dark: 185 28 28;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-900 text-paper-100 font-sans antialiased;
+}
+
+body.theme-light {
+  @apply bg-paper-50 text-ink-900;
+}
+
+::selection {
+  background: rgba(245, 166, 35, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-ink-500)) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-ink-500));
+  border-radius: 8px;
+}
+
+:focus-visible {
+  outline: 2px solid #4c9aff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-ink-700 border border-ink-500/60 rounded-xl2 shadow-panel;
+  }
+  .input-field {
+    @apply w-full bg-ink-800 border border-ink-500 rounded-lg px-3 py-2.5 text-sm text-paper-100 placeholder:text-ink-400/70 outline-none transition-colors focus:border-ion;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg text-sm font-semibold px-4 py-2.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-signal text-ink-950 hover:bg-signal-light;
+  }
+  .btn-secondary {
+    @apply btn bg-ink-600 text-paper-100 border border-ink-500 hover:bg-ink-500;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-paper-100/80 hover:bg-ink-600;
+  }
+  .btn-danger {
+    @apply btn bg-coral/15 text-coral border border-coral/30 hover:bg-coral/25;
+  }
+  .label-text {
+    @apply block text-xs font-medium text-paper-100/60 mb-1.5;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-paper-100/65 hover:text-paper-100 hover:bg-ink-600/70 transition-colors;
+  }
+  .nav-link-active {
+    @apply bg-ink-600 text-paper-100 relative;
+  }
+  .nav-link-active::before {
+    content: "";
+    @apply absolute left-0 top-1.5 bottom-1.5 w-[3px] rounded-full bg-signal -ml-3;
+  }
+}
