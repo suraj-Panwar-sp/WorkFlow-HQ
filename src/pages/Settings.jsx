@@ -4,7 +4,8 @@ import PageHeader from "../components/common/PageHeader";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import { setTheme, addToast, openModal } from "../features/ui/uiSlice";
-import { clearAppStorage } from "../utils/localStorage";
+import { clearAppStorage, getFromLocalStorage, setToLocalStorage, STORAGE_KEYS } from "../utils/localStorage";
+import { dummyUsers } from "../data/dummyData";
 
 export default function Settings() {
   const dispatch = useDispatch();
@@ -18,10 +19,34 @@ export default function Settings() {
     dispatch(addToast({ message: `Switched to ${value} mode.`, variant: "info" }));
   };
 
-  const handleProfileSave = (e) => {
-    e.preventDefault();
-    dispatch(addToast({ message: "Profile information saved locally.", variant: "success" }));
-  };
+  // const handleProfileSave = (e) => {
+  //   e.preventDefault();
+  //   const loginUser = getFromLocalStorage(STORAGE_KEYS.USER);
+  //   const { id, role } = loginUser;
+  //   const updatedUser = {
+  //     id,
+  //     name: profile.name,
+  //     email: profile.email,
+  //     role,
+  //   };
+  //   setToLocalStorage(STORAGE_KEYS.USER, updatedUser);
+  //   const existing = getFromLocalStorage("workflow_registered_users", dummyUsers);
+  //   const updated = existing.map((e) => {
+  //     if (e.id === id) {
+  //       return {
+  //         ...e,
+  //         name: profile.name,
+  //         email: profile.email,
+  //       };
+  //     }
+
+  //     return e;
+  //   });
+  //   console.log(updated);
+  //   setToLocalStorage("workflow_registered_users",updated);
+
+  //   dispatch(addToast({ message: "Profile information saved locally.", variant: "success" }));
+  // };
 
   const handleReset = () => {
     dispatch(
@@ -65,7 +90,7 @@ export default function Settings() {
         </div>
       </div>
 
-      <form onSubmit={handleProfileSave} className="card p-6 mb-5 space-y-4">
+      {/* <form onSubmit={handleProfileSave} className="card p-6 mb-5 space-y-4">
         <div>
           <h3 className="font-display font-bold text-paper-100 mb-1">Profile</h3>
           <p className="text-sm text-paper-100/50">Update how your name and email appear across WorkFlow.</p>
@@ -75,7 +100,7 @@ export default function Settings() {
         <div className="flex justify-end">
           <Button type="submit">Save profile</Button>
         </div>
-      </form>
+      </form> */}
 
       <div className="card p-6 border-coral/30">
         <h3 className="font-display font-bold text-paper-100 mb-1">Reset application data</h3>
