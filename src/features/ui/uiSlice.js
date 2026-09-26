@@ -15,7 +15,7 @@ const uiSlice = createSlice({
     toggleSidebar: (state) => {
       state.sidebarOpen = !state.sidebarOpen;
     },
-    closeSidebar: (state) => {x``
+    closeSidebar: (state) => {
       state.sidebarOpen = false;
     },
     setTheme: (state, action) => {
