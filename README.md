@@ -1,6 +1,5 @@
 # WorkFlow – Employee Management & Productivity Dashboard
 
-A frontend-only, resume-ready SaaS admin dashboard built with React, React Router DOM, Redux Toolkit, Tailwind CSS and LocalStorage persistence. No backend, no database — everything runs in the browser.
 
 ## Tech stack
 
@@ -10,21 +9,6 @@ A frontend-only, resume-ready SaaS admin dashboard built with React, React Route
 - Tailwind CSS (custom design tokens — see `tailwind.config.js`)
 - Browser LocalStorage for persistence (`src/utils/localStorage.js`)
 
-## Getting started
-
-```bash
-npm install
-npm run dev
-```
-
-Open the printed local URL (usually `http://localhost:5173`).
-
-To create a production build:
-
-```bash
-npm run build
-npm run preview
-```
 
 ## Demo login
 
@@ -33,7 +17,7 @@ The login screen is pre-filled with a working demo account:
 - **Email:** `admin@workflow.io`
 - **Password:** `admin123`
 
-You can also create a brand-new account from the Sign Up page — it's stored in LocalStorage under `workflow_registered_users`.
+We can also create a brand-new account from the Sign Up page — it's stored in LocalStorage under `workflow_registered_users`.
 
 ## Features
 
