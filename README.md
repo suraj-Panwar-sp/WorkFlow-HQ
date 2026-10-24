@@ -7,6 +7,12 @@ I built this project to work on different React concepts, including state manage
 The application allows users to manage employees, assign and track tasks, organize departments, and view productivity statistics from a single dashboard.
 
 **Live Demo:** https://work-flow-hq.vercel.app/
+<img width="1534" height="694" alt="image" src="https://github.com/user-attachments/assets/f94acbd3-89c9-46e9-83d8-35f378a9517c" />
+<img width="1535" height="691" alt="image" src="https://github.com/user-attachments/assets/6129d4a4-f4fc-49d9-a204-894ae9949e02" />
+<img width="1535" height="691" alt="image" src="https://github.com/user-attachments/assets/06f54316-8b37-4b07-8a35-770d3e47d7a9" />
+
+
+
 
 ## Tech Stack
 
