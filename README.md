@@ -1,56 +1,127 @@
-# WorkFlow – Employee Management & Productivity Dashboard
+# WorkFlow – Employee Management Dashboard
 
+WorkFlow is an employee management and productivity dashboard built using React, Redux Toolkit, and Tailwind CSS.
 
-## Tech stack
+I built this project to work on different React concepts, including state management, routing, reusable components, and handling data across multiple pages.
+
+The application allows users to manage employees, assign and track tasks, organize departments, and view productivity statistics from a single dashboard.
+
+**Live Demo:** https://work-flow-hq.vercel.app/
+
+## Tech Stack
 
 - React 19 + Vite
-- React Router DOM (protected/public routes, nested routes, `useParams`, `useNavigate`)
-- Redux Toolkit (`authSlice`, `employeeSlice`, `taskSlice`, `departmentSlice`, `uiSlice`)
-- Tailwind CSS (custom design tokens — see `tailwind.config.js`)
-- Browser LocalStorage for persistence (`src/utils/localStorage.js`)
+- JavaScript
+- Redux Toolkit for state management
+- React Router DOM for navigation and protected routes
+- Tailwind CSS for styling and responsive layouts
+- LocalStorage for storing application data
 
+## Demo Login
 
-## Demo login
+You can use the following credentials to explore the dashboard:
 
-The login screen is pre-filled with a working demo account:
+- **Email:** admin@workflow.io
+- **Password:** admin123
 
-- **Email:** `admin@workflow.io`
-- **Password:** `admin123`
-
-We can also create a brand-new account from the Sign Up page — it's stored in LocalStorage under `workflow_registered_users`.
+You can also create a new account using the Sign Up page.
 
 ## Features
 
-- Dummy authentication with protected routes, persisted login, and redirect-away-from-login when already signed in
-- Employee management: search, filter by department/status, sort, add/edit/delete, detail profile page
-- Task management: kanban-style status control, priority, filters, search, sort, add/edit/delete
-- Department management with team rosters
-- Dashboard with live stats, recent activity, task-status and performance summaries
-- Analytics page with CSS-only progress-bar visualizations (no chart library, no backend)
-- Settings: dark/light theme (persisted), profile fields, and a full "reset application data" action
-- Reusable UI kit: buttons, inputs, selects, modal, confirm-delete modal, toasts, avatars, badges, empty states, loaders
-- Fully responsive: collapsible/slide-in sidebar on mobile, responsive tables and grids
+### Authentication
+- Login and signup functionality
+- Protected routes for authenticated users
+- Login session persists after refreshing the page
+- Logout functionality
 
-## Project structure
+### Employee Management
+- Add, edit, and delete employees
+- Search employees by name
+- Filter employees by department and status
+- Sort employee records
+- View individual employee profiles
 
-```
+### Task Management
+- Create, update, and delete tasks
+- Track tasks based on their status
+- Set task priorities
+- Search, filter, and sort tasks
+
+### Departments
+- Add and manage departments
+- View employees assigned to each department
+
+### Dashboard & Analytics
+- Overview of employees, departments, and tasks
+- Recent employee and task activity
+- Task status and performance summaries
+- Productivity visualizations using CSS progress bars
+
+### Other Features
+- Dark and light mode
+- Responsive layout for desktop and mobile
+- Collapsible sidebar
+- Profile settings
+- Reset application data option
+- Reusable components such as modals, buttons, forms, toasts, and loaders
+
+## Project Structure
+
+```text
 src/
-├── app/store.js              Redux store + LocalStorage sync
-├── features/                 authSlice, employeeSlice, taskSlice, departmentSlice, uiSlice
+├── app/
+│   └── store.js
+├── features/
+│   ├── authSlice
+│   ├── employeeSlice
+│   ├── taskSlice
+│   ├── departmentSlice
+│   └── uiSlice
 ├── components/
-│   ├── common/                Button, Input, Select, Modal, ConfirmModal, Toast, Avatar, Badge, EmptyState, Loader, PageHeader
-│   ├── layout/                Sidebar, Topbar, DashboardLayout
-│   ├── dashboard/              StatCard, RecentEmployees, RecentTasks, TaskStatusSummary, PerformanceSummary
-│   ├── employees/              EmployeeForm, EmployeeTable, EmployeeFilters
-│   ├── tasks/                  TaskForm, TaskCard, TaskFilters
-│   └── departments/            DepartmentForm, DepartmentCard
-├── pages/                     One page component per route
-├── routes/                    ProtectedRoute, PublicRoute
-├── utils/                     localStorage.js, helpers.js
-└── data/dummyData.js          Seed data for the first run
+│   ├── common/
+│   ├── layout/
+│   ├── dashboard/
+│   ├── employees/
+│   ├── tasks/
+│   └── departments/
+├── pages/
+├── routes/
+├── utils/
+└── data/
 ```
 
-## Notes
+## Run Locally
 
-- All data (employees, tasks, departments, theme, session) persists to LocalStorage and survives a page refresh.
-- "Reset application data" on the Settings page clears every WorkFlow key and returns you to the login screen.
+Clone the repository:
+
+```bash
+git clone https://github.com/suraj-Panwar-sp/WorkFlow-HQ.git
+```
+
+Go to the project directory:
+
+```bash
+cd WorkFlow-HQ
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Note
+
+This is a frontend project, so there is no backend or database connected to it.
+
+Authentication is implemented for demonstration purposes, and application data is stored in the browser using LocalStorage.
+
+Employee records, tasks, departments, and user preferences remain available after refreshing the page.
+
+The Settings page also includes an option to reset all application data.
